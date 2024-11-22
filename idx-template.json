@@ -3,9 +3,7 @@
   "description": "The React Framework for the Web",
   "categories": ["Web app", "React"],
   "icon": "",
-  "publisher": {
-    "name": "Brian Isadia"
-  },
+  "publisher": "Brian Isadia",
   "params": [
     {
       "id": "language",
