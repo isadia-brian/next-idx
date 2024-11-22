@@ -2,11 +2,11 @@
 , packageManager ? "npm", srcDir ? false, eslint ? false, app ? false
 , tailwind ? false, ... }: {
 
-  packages = [ pkgs.nodejs_20 pkgs.yarn pkgs.pnpm];
+  packages = [ pkgs.nodejs_20 pkgs.yarn pkgs.nodePackages.pnpm pkgs.bun ];
 
   bootstrap = ''
     			mkdir "$out"
-    			pnpm create next-app@${version} "$out" \
+    			npx create-next-app@${version} "$out" \
 					  --yes \
 					  --skip-install \
     				--import-alias=${importAlias} \
@@ -21,5 +21,11 @@
       		cp ${./dev.nix} "$out"/.idx/dev.nix
     			chmod -R +w "$out"
 
+    			${
+         if packageManager == "npm" then
+           "( cd $out && npm i --package-lock-only --ignore-scripts )"
+         else
+           ""
+       }
   '';
 }
