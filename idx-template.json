@@ -1,9 +1,11 @@
 {
-  "name": "Next.js - template",
+  "name": "Next template",
   "description": "The React Framework for the Web",
   "categories": ["Web app", "React"],
-  "icon": "http://foo.svg",
-  "publisher": {},
+  "icon": "",
+  "publisher": {
+    "name": "Brian Isadia"
+  },
   "params": [
     {
       "id": "language",
